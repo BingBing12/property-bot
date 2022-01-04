@@ -37,12 +37,12 @@ for (index, listing) in enumerate(listings):
     }
 driver = webdriver.Chrome(service=ser)
 driver.get(FORM_URL)
-
+time.sleep(1)
 for data in listing_data.values():
     print(data)
     inputs = driver.find_elements(by=By.CSS_SELECTOR, value="input.quantumWizTextinputPaperinputInput")
     submit = driver.find_element(by=By.CSS_SELECTOR, value=".appsMaterialWizButtonPaperbuttonLabel")
-    time.sleep(0.3)
+
     for (index, answer) in enumerate(inputs):
         print(data[index])
         answer.send_keys(data[index])
